@@ -9,14 +9,15 @@ const LoginPage = () => {
   const userState = useSelector((state) => state.users.user);
 
   useEffect(() => {
-    if (userState !== undefined) {
+    console.log(userState);
+    if (userState.length !== 0) {
       return Router.push("/album");
     }
-  }, []);
+  });
 
   return (
     <>
-      {userState === undefined ? (
+      {userState.length === 0 ? (
         <>
           <Head>
             <title>Login | Photo Album</title>

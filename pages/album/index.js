@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAlbums, selectAlbums } from "../../lib/slices/dataTestSlice";
 import requiredAuth from "../../components/requiredAuth/requiredAuth";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { doLogout } from "../../lib/slices/dataTestSlice";
 
 const AlbumPage = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,13 @@ const AlbumPage = () => {
         <Row className="justify-content-center">
           <Col md={10}>
             <h3 className="text-center">All Albums</h3>
+            <button
+              onClick={() => {
+                dispatch(doLogout());
+              }}
+            >
+              Logout
+            </button>
           </Col>
           <Col md={10}>{albums.map(renderAlbum)}</Col>
         </Row>

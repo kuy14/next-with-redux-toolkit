@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AddDataForm from "../../components/add-data";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import requiredAuth from "../../components/requiredAuth/requiredAuth";
 import {
   getDataTest,
   getPhotos,
@@ -62,4 +63,4 @@ const PhotoPage = () => {
   );
 };
 
-export default PhotoPage;
+export default requiredAuth(PhotoPage);
